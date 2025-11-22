@@ -11,6 +11,7 @@ const Index = () => {
   const { toast } = useToast();
   const [isDragging, setIsDragging] = useState(false);
 
+
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
     setIsDragging(true);
@@ -78,8 +79,8 @@ const Index = () => {
           >
             <div className="text-center">
               <div className={`w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center transition-all ${isDragging
-                  ? "bg-primary text-primary-foreground scale-110"
-                  : "bg-muted text-muted-foreground"
+                ? "bg-primary text-primary-foreground scale-110"
+                : "bg-muted text-muted-foreground"
                 }`}>
                 {isDragging ? (
                   <FileText className="w-10 h-10" />
