@@ -5,6 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: "/cv-booster-pro/", // <--- AJOUTEZ CETTE LIGNE (remplacez par le nom exact de votre repo GitHub)
   server: {
     host: "::",
     port: 8080,
