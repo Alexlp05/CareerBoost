@@ -15,5 +15,5 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(process.cwd(), "./src"),
     },
   },
-  base: "/CareerBooster/",
+  base: "/CareerBost/",
 }));

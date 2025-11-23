@@ -1,6 +1,7 @@
 import { NavLink } from "@/components/NavLink";
 import { Button } from "@/components/ui/button";
-import { Sparkles, FileText, Video, History, User } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sparkles, FileText, Video, History, User, Menu } from "lucide-react";
 
 export const Navigation = () => {
   return (
@@ -17,7 +18,7 @@ export const Navigation = () => {
             </span>
           </NavLink>
 
-          {/* Navigation Links */}
+          {/* Desktop Navigation Links */}
           <div className="hidden md:flex items-center gap-1">
             <NavLink
               to="/"
@@ -54,12 +55,73 @@ export const Navigation = () => {
             </NavLink>
           </div>
 
-          {/* Profile Button */}
-          <NavLink to="/profile">
-            <Button variant="ghost" size="icon" className="rounded-full">
-              <User className="w-5 h-5" />
-            </Button>
-          </NavLink>
+          {/* Profile Button (Desktop) */}
+          <div className="hidden md:block">
+            <NavLink to="/profile">
+              <Button variant="ghost" size="icon" className="rounded-full">
+                <User className="w-5 h-5" />
+              </Button>
+            </NavLink>
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className="md:hidden">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="w-5 h-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                <div className="flex flex-col gap-4 mt-8">
+                  <NavLink
+                    to="/"
+                    end
+                    className="px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
+                    activeClassName="text-foreground bg-muted"
+                  >
+                    <div className="flex items-center gap-2">
+                      <FileText className="w-4 h-4" />
+                      <span>Optimiser</span>
+                    </div>
+                  </NavLink>
+
+                  <NavLink
+                    to="/history"
+                    className="px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
+                    activeClassName="text-foreground bg-muted"
+                  >
+                    <div className="flex items-center gap-2">
+                      <History className="w-4 h-4" />
+                      <span>Historique</span>
+                    </div>
+                  </NavLink>
+
+                  <NavLink
+                    to="/questions"
+                    className="px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
+                    activeClassName="text-foreground bg-muted"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Video className="w-4 h-4" />
+                      <span>Interview</span>
+                    </div>
+                  </NavLink>
+
+                  <NavLink
+                    to="/profile"
+                    className="px-4 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all"
+                    activeClassName="text-foreground bg-muted"
+                  >
+                    <div className="flex items-center gap-2">
+                      <User className="w-4 h-4" />
+                      <span>Profil</span>
+                    </div>
+                  </NavLink>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </nav>
